@@ -1,0 +1,14 @@
+# In .streamlit/config.toml
+[theme]
+primaryColor = "#878686"  # Set your preferred color
+backgroundColor = "#FFFFFF"  # Set your preferred background color
+secondaryBackgroundColor = "#A3F5f5"  # Secondary background
+textColor = "#3E3E3F"  # Text color
+
+[server]
+headless = true
+enableCORS = false
+enableXsrfProtection = false
+
+[layout]
+wideMode = true

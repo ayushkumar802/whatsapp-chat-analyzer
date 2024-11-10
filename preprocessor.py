@@ -26,6 +26,22 @@ def preprocessor(data):
     df['user'] = user
     df['message'] = mes
     df.drop(columns=['user_message'], inplace=True)
+
+#Updated Code 
+    df['day_name'] = df['message_date'].dt.day_name()
+
+    period = []
+    for hour in df['hour']:
+        if hour == 23:
+            period.append(str(hour) + "-" + str('00'))
+        elif hour == 0:
+            period.append(str("0") + "-" + str(hour + 1))
+        else:
+            period.append(str(hour) + "-" + str(hour + 1))
+
+    df["period"] = period
+
+    
     if 'You deleted this message\n' in df['message'].tolist():
         user_name = df[df['message'] == 'You deleted this message\n']['user'].tolist()[0]
         df['user']=df['user'].apply(lambda x: "You" if x==user_name else x)

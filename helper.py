@@ -185,5 +185,13 @@ def monthlyactivity(selected_user,df):
 
     return df.groupby(['month_num','month']).count()['message'].reset_index()
 
+def heatmaps_(selected_user,df):
+    if selected_user != "OverAll":
+        df = df[df['user'] == selected_user]
+
+    heat_df = df.pivot_table(index="day_name", columns="period",values="message",aggfunc="count").fillna(0)
+
+    return heat_df
+
 
 

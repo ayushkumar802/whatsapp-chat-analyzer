@@ -213,6 +213,17 @@ if uploaded_file is not None:
                             with col2:
                                 st.dataframe(dl.iloc[:10,:],use_container_width=True)
 
+            #Heat_Map Actvity
+                    st.markdown("<h2 style='padding-bottom: 0;'>📎 Weekly Timeline</h2>",
+                                unsafe_allow_html=True)
+                    st.divider()
+
+                    heat_df = helper.heatmaps_(selected_user,df)
+                    fig, ax = plt.subplots(figsize=(20, 6))
+                    sns.heatmap(heat_df,cmap="GnBu_r",alpha=0.96, ax=ax)
+                    st.pyplot(fig)
+                    plt.yticks(rotation="horizontal")
+
 
             #Monthly Timeline
                     st.markdown("<h2 style='padding-bottom: 0;'>📎 Monthly Timeline</h2>", unsafe_allow_html=True)

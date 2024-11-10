@@ -13,7 +13,7 @@ if 'uploaded_file' not in st.session_state:
 if st.session_state['uploaded_file'] is None:
     # CSS for center-aligned image
 
-    st.image("image/WhatsApp Image 2024-11-05 at 8.26.22 PM.jpeg", use_column_width=True)
+    st.image("image/WhatsApp Image 2024-11-05 at 8.26.22 PM.jpeg", use_container_width=True)
 
 
 
